@@ -19,6 +19,11 @@ REDIS_URL = "redis://default:${{RAILWAY_CRYPTO_RANDOM_32}}@${{RAILWAY_TCP_PROXY_
 PORT = "6379"
 REDIS_PASSWORD = "${{RAILWAY_CRYPTO_RANDOM_32}}"
 
+# Add these labels to identify as Redis
+[environments.production.services.redis.labels]
+"railway.service.type" = "redis"
+"railway.database.type" = "redis"
+
 [[environments.production.services.redis.ports]]
 port = 6379
 protocol = "TCP"
