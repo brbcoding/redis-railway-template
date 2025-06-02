@@ -1,16 +1,11 @@
-[build]
-builder = "dockerfile"
-
 [environments.production]
 
 [[environments.production.services]]
 name = "redis"
+source = "image"
 
 [environments.production.services.redis]
-
-[environments.production.services.redis.metadata]
-type = "database"
-engine = "redis"
+image = "redis"
 
 [environments.production.services.redis.variables]
 # Auto-generated secure variables
@@ -23,10 +18,6 @@ REDIS_URL = "redis://default:${{RAILWAY_CRYPTO_RANDOM_32}}@${{RAILWAY_TCP_PROXY_
 # Internal Redis config
 PORT = "6379"
 REDIS_PASSWORD = "${{RAILWAY_CRYPTO_RANDOM_32}}"
-
-[environments.production.services.redis.labels]
-"railway.service.type" = "redis"
-"railway.database.type" = "redis"
 
 [[environments.production.services.redis.ports]]
 port = 6379
