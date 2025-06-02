@@ -1,3 +1,7 @@
+[build]
+builder = "nixpacks"
+buildCommand = ""
+
 [environments.production]
 
 [[environments.production.services]]
