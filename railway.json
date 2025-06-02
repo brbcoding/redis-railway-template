@@ -1,0 +1,23 @@
+{
+  "name": "Redis",
+  "description": "Official Redis Docker image with auto-generated password",
+  "tags": ["database", "cache", "redis"],
+  "variables": {
+    "REDISPASSWORD": {
+      "description": "Auto-generated secure password for Redis",
+      "default": "${{RAILWAY_CRYPTO_RANDOM_32}}"
+    },
+    "REDISHOST": {
+      "description": "Redis host (auto-populated by Railway)",
+      "default": "${{RAILWAY_TCP_PROXY_DOMAIN}}"
+    },
+    "REDISPORT": {
+      "description": "Redis port (auto-populated by Railway)",
+      "default": "${{RAILWAY_TCP_PROXY_PORT}}"
+    },
+    "REDISUSER": {
+      "description": "Redis username",
+      "default": "default"
+    }
+  }
+}

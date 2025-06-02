@@ -1,0 +1,24 @@
+[build]
+builder = "dockerfile"
+
+[environments.production]
+
+[[environments.production.services]]
+name = "redis"
+
+[environments.production.services.redis]
+[environments.production.services.redis.variables]
+# Auto-generated secure variables
+REDISPASSWORD = "${{RAILWAY_CRYPTO_RANDOM_32}}"
+REDISHOST = "${{RAILWAY_TCP_PROXY_DOMAIN}}"
+REDISPORT = "${{RAILWAY_TCP_PROXY_PORT}}"
+REDISUSER = "default"
+REDIS_URL = "redis://default:${{RAILWAY_CRYPTO_RANDOM_32}}@${{RAILWAY_TCP_PROXY_DOMAIN}}:${{RAILWAY_TCP_PROXY_PORT}}"
+
+# Internal Redis config
+PORT = "6379"
+REDIS_PASSWORD = "${{RAILWAY_CRYPTO_RANDOM_32}}"
+
+[[environments.production.services.redis.ports]]
+port = 6379
+protocol = "TCP"
